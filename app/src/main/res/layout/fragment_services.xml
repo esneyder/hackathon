@@ -1,13 +1,88 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context="com.gleamsoft.beautyshop.home.fragment.ServicesFragment">
+              android:orientation="vertical"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/products_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"
+            android:visibility="visible"/>
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/products_recycler_tra"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"
+            android:visibility="visible"/>
+    </LinearLayout>
+
     <TextView
+        android:id="@+id/textViewChild"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"/>
+        android:layout_height="wrap_content"
+        android:foregroundGravity="center_vertical|center_horizontal"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="@string/txtnull"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="gone" />
 
-</FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+
+
+        android:layout_marginTop="-50dp"
+        android:background="@color/colorPrimaryDark"
+
+        android:elevation="24dp"
+        android:gravity="bottom" android:orientation="horizontal"
+        tools:layout_editor_absoluteX="141dp" tools:layout_editor_absoluteY="456dp">
+
+        <ImageView
+            android:id="@+id/iv_activity_icon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+
+            android:src="@drawable/ic_run"/>
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/avi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            app:indicatorName="BallScaleMultipleIndicator"/>
+
+        <TextView
+            android:id="@+id/tv_latitude"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:text="New Text"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textStyle="bold" tools:text="20.3"/>
+
+
+    </LinearLayout>
+</LinearLayout>

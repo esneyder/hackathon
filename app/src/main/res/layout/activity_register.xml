@@ -8,16 +8,54 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
+        android:inputType="number"
         android:ems="10"
         android:id="@+id/username"
         android:drawableLeft="@drawable/ic_account_box"
-        android:hint="Usuario"
-        android:layout_marginTop="100dp"
-        android:textColor="#FFF"
+        android:hint="Cédula"
+
         android:paddingLeft="0dp"
         android:drawablePadding="5dp"
-        android:textColorHint="#999"/>
+        android:textColor="@color/inputcolor"
+        android:textColorHint="@color/inputcolor"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:ems="10"
+        android:id="@+id/name"
+        android:drawableLeft="@drawable/ic_account_box"
+        android:hint="Nombres"
+        android:paddingLeft="0dp"
+        android:drawablePadding="5dp"
+        android:textColor="@color/inputcolor"
+        android:textColorHint="@color/inputcolor"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:ems="10"
+        android:id="@+id/phone"
+        android:drawableLeft="@drawable/ic_account_box"
+        android:hint="Télefono"
+
+        android:paddingLeft="0dp"
+        android:drawablePadding="5dp"
+        android:textColor="@color/inputcolor"
+        android:textColorHint="@color/inputcolor"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:ems="10"
+        android:id="@+id/plate"
+        android:drawableLeft="@drawable/ic_account_box"
+        android:hint="Placa vehículo"
+
+        android:paddingLeft="0dp"
+        android:drawablePadding="5dp"
+        android:textColor="@color/inputcolor"
+        android:textColorHint="@color/inputcolor"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,12 +63,11 @@
         android:ems="10"
         android:id="@+id/email"
         android:drawableLeft="@drawable/ic_email"
-        android:hint="Usuario"
-
-        android:textColor="#FFF"
+        android:hint="Correo electrónico"
         android:paddingLeft="0dp"
         android:drawablePadding="5dp"
-        android:textColorHint="#999"/>
+        android:textColor="@color/inputcolor"
+        android:textColorHint="@color/inputcolor"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -41,15 +78,15 @@
         android:drawableLeft="@drawable/ic_https"
         android:hint="Password"
         android:layout_marginTop="10dp"
-        android:textColor="#FFF"
         android:paddingLeft="0dp"
         android:drawablePadding="5dp"
-        android:textColorHint="#999"/>
+        android:textColor="@color/inputcolor"
+        android:textColorHint="@color/inputcolor"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+
         android:text="Ingresar"
         android:id="@+id/button"
         android:background="@drawable/selector_xml_btn"
@@ -63,7 +100,7 @@
         android:text="Ya tienes una cuenta?"
         android:id="@+id/textView3"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:textColor="#FFF"
         android:onClick="back"
     />

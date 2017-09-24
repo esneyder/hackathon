@@ -6,18 +6,18 @@
               android:padding="40dp">
 
     <EditText
+        android:id="@+id/username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
-        android:ems="10"
-        android:id="@+id/username"
-        android:drawableLeft="@drawable/ic_account_box"
-        android:hint="Usuario"
         android:layout_marginTop="70dp"
-        android:textColor="#FFF"
-        android:paddingLeft="0dp"
+        android:drawableLeft="@drawable/ic_account_box"
         android:drawablePadding="5dp"
-        android:textColorHint="#999"/>
+        android:ems="10"
+        android:hint="Usuario"
+        android:inputType="number"
+        android:paddingLeft="0dp"
+        android:textColor="@color/inputcolor"
+        android:textColorHint="@color/inputcolor"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -28,10 +28,9 @@
         android:drawableLeft="@drawable/ic_https"
         android:hint="Password"
         android:layout_marginTop="10dp"
-        android:textColor="#FFF"
         android:paddingLeft="0dp"
-        android:drawablePadding="5dp"
-        android:textColorHint="#999"/>
+        android:textColor="@color/inputcolor"
+        android:textColorHint="@color/inputcolor"/>
 
     <Button
         android:layout_width="match_parent"
