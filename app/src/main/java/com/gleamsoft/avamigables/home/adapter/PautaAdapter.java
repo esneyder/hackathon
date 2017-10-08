@@ -17,7 +17,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.gleamsoft.avamigables.R;
-import com.gleamsoft.avamigables.home.model.Pautas;
+import com.gleamsoft.avamigables.home.model.Info;
 
 import java.util.List;
 
@@ -29,9 +29,9 @@ import java.util.List;
  */
 public class PautaAdapter extends RecyclerView.Adapter<PautaAdapter.BooksViewHolder> {
 private ItemClickListener clickListener;
-private List<Pautas> mDataset;
+private List<Info> mDataset;
 private Context context;
-public PautaAdapter(List<Pautas> myDataset, Context ctx) {
+public PautaAdapter(List<Info> myDataset, Context ctx) {
     mDataset = myDataset;
     this.context = ctx;
 }
@@ -42,21 +42,16 @@ public void setClickListener(ItemClickListener itemClickListener) {
 
 public class BooksViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
     public CardView mProductCardView;
-    public TextView mBookTitle;
-    public TextView mBookDescription;
-    public TextView distance;
-    public TextView mBookService;
-    public ImageView mBookCover;
+    public TextView gramos;
+
+    public TextView titulo;
     
     public BooksViewHolder(View itemView)  {
         super(itemView);
        // mProductCardView = (CardView)itemView.findViewById(R.id.product_card_view);
-        mBookTitle = (TextView)itemView.findViewById(R.id.direccion);
-        distance = (TextView)itemView.findViewById(R.id.distance);
-       /* mBookDescription = (TextView)itemView.findViewById(R.id.book_description);
-        mBookPrice = (TextView)itemView.findViewById(R.id.book_price);
-        mBookService = (TextView)itemView.findViewById(R.id.txtservicio);*/
-        mBookCover = (ImageView)itemView.findViewById(R.id.book_cover);
+        gramos = (TextView)itemView.findViewById(R.id.avgramos);
+        titulo = (TextView)itemView.findViewById(R.id.titulo);
+
         itemView.setOnClickListener(this);
     }
     
@@ -77,20 +72,14 @@ public BooksViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
 
 @Override
 public void onBindViewHolder(BooksViewHolder booksViewHolder, int position) {
-    booksViewHolder.mBookTitle.setText(mDataset.get(position).getPunto());
-    booksViewHolder.distance.setText(String.valueOf(mDataset.get(position).getDintance()));
+    booksViewHolder.gramos.setText(mDataset.get(position).getGramos() +"");
+    booksViewHolder.titulo.setText(String.valueOf(mDataset.get(position).getTitulo()));
     /*if(mDataset.get(position).getMensaje().length() > 40)
         booksViewHolder.mBookDescription.setText(mDataset.get(position).getMensaje().substring(0,40));
     booksViewHolder.mBookPrice.setText(String.valueOf(mDataset.get(position).getPunto()));
     booksViewHolder.mBookService.setText(String.valueOf(mDataset.get(position).getDintance()));*/
     
-    // Loading profile image
-    Glide.with(context).load(mDataset.get(position).getFoto().getUrl())
-            .crossFade()
-            .thumbnail(0.5f)
-            .diskCacheStrategy(DiskCacheStrategy.ALL)
-            .into(booksViewHolder.mBookCover);
-    
+
 }
 
 @Override

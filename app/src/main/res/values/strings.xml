@@ -45,8 +45,8 @@
     <string name="nombre_transicion_imagen">imagen_compartida</string>
 
     <string-array name="bus">
-        <item>Universidad de medellín - Aranjuez</item>
-        <item>Aranjuez - Uiversidad de medellín</item>
+        <item>Te invitamos a seguir haciendo de él</item>
+        <item>Agradecemos que contribuyas con un mejor uso del transporte</item>
     </string-array>
 
     <string-array name="identification">

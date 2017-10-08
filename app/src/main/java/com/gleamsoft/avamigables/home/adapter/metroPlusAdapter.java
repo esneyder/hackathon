@@ -44,7 +44,7 @@ public class BooksViewHolder extends RecyclerView.ViewHolder implements View.OnC
     public BooksViewHolder(View itemView)  {
         super(itemView);
         mProductCardView = (CardView)itemView.findViewById(R.id.metro);
-        direccion = (TextView)itemView.findViewById(R.id.direccion);
+        direccion = (TextView)itemView.findViewById(R.id.gramos);
         fecha = (TextView)itemView.findViewById(R.id.fecha);
         
         sentido = (TextView)itemView.findViewById(R.id.sentido);
@@ -74,13 +74,36 @@ public void onBindViewHolder(BooksViewHolder booksViewHolder, int position) {
      
 //    booksViewHolder.minutos.setText(mDataset.get(position).getMinutosRetraso());
     booksViewHolder.sentido.setText(String.valueOf(mDataset.get(position).getSentido()));
-    
-    
-    Glide.with(context).load(R.drawable.metroplus)
-            .crossFade()
-            .thumbnail(0.5f)
-            .diskCacheStrategy(DiskCacheStrategy.ALL)
-            .into(booksViewHolder.imagen);
+
+    if(position == 0) {
+        Glide.with(context).load(R.drawable.moto)
+                .crossFade()
+                .thumbnail(0.5f)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(booksViewHolder.imagen);
+    }
+    if(position == 1) {
+        Glide.with(context).load(R.drawable.metroplus)
+                .crossFade()
+                .thumbnail(0.5f)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(booksViewHolder.imagen);
+    }
+    if(position == 2) {
+        Glide.with(context).load(R.drawable.bicicleta)
+                .crossFade()
+                .thumbnail(0.5f)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(booksViewHolder.imagen);
+    }
+    if(position == 3) {
+        Glide.with(context).load(R.drawable.carro)
+                .crossFade()
+                .thumbnail(0.5f)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(booksViewHolder.imagen);
+    }
+
     
 }
 

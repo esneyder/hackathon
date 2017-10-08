@@ -36,6 +36,7 @@ import com.gleamsoft.avamigables.home.Util.geoLocation;
 import com.gleamsoft.avamigables.home.activity.DetectedActivitiesIntentService;
 import com.gleamsoft.avamigables.home.adapter.PautaAdapter;
 import com.gleamsoft.avamigables.home.adapter.metroPlusAdapter;
+import com.gleamsoft.avamigables.home.model.Info;
 import com.gleamsoft.avamigables.home.model.Pautas;
 import com.gleamsoft.avamigables.home.model.metroPlus;
 import com.google.android.gms.common.ConnectionResult;
@@ -102,7 +103,7 @@ public static final int REQUEST_CHECK_SETTINGS = 20;
 private RecyclerView mRecyclerView;
 
 private PautaAdapter pautaAdapter;
-private List<Pautas> profesionalList;
+private List<Info> profesionalList;
 TextView textViewChildName;
 private TextView mLatitude;
 private  String address = "";
@@ -129,7 +130,7 @@ public View onCreateView(LayoutInflater inflater, ViewGroup container,
     
     textViewChildName = (TextView) view.findViewById(R.id.textViewChild);
     mLatitude = (TextView) view.findViewById(R.id.tv_latitude);
-    profesionalList = new ArrayList<Pautas>();
+    profesionalList = new ArrayList<Info>();
     
     mRecyclerView = (RecyclerView) view.findViewById(R.id.products_recycler_view);
     RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getActivity(), 2);
@@ -163,8 +164,8 @@ public View onCreateView(LayoutInflater inflater, ViewGroup container,
     mBroadcastReceiver = new ActivityDetectionBroadcastReceiver();
     
     updateValuesFromBundle(savedInstanceState);
-    
-    
+
+    getdata();
     getmetroplus();
     return view;
 }
@@ -194,6 +195,7 @@ public void onResume() {
     LocalBroadcastManager.getInstance(getActivity())
             .registerReceiver(mBroadcastReceiver, intentFilter);
 }
+
 
 @Override
 public void onSaveInstanceState(Bundle outState) {
@@ -321,7 +323,7 @@ private void updateLocationUI() {
     LocationAddress locationAddress = new LocationAddress();
     locationAddress.getAddressFromLocation(mLastLocation.getLatitude(), mLastLocation.getLongitude(),
             getActivity(), new GeocoderHandler());
-    getData(cord);
+    //getData(cord);
     
     //getLocation(mLastLocation.getLatitude(),mLastLocation.getLongitude(),200);
 }
@@ -560,7 +562,7 @@ private void get(ParseObject punto, final double distance) {
                                                          comment.getBoolean("estado"),
                                                          geoLocation.formatNumber(distance));
     
-                        profesionalList.add(pauta);
+                       // profesionalList.add(pauta);
     
                     }
                     contador++;
@@ -575,58 +577,65 @@ private void get(ParseObject punto, final double distance) {
     });
     
 }
+private void getdata(){
+    Info info = new Info(1,"Producido",0);
+    profesionalList.add(info);
+    info = new Info(1,"Acumulado",200);
+    profesionalList.add(info);
+    pautaAdapter.notifyDataSetChanged();
+}
 
 private void getmetroplus() {
-    
-    Handler handler = new Handler();
-    handler.postDelayed(new Runnable() {
-        @Override
-        public void run() {
-        
-            int a = 1;
-            int t = 0;
-            int atotal = 0;
-            boolean r = false;
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
-            String currentDateandTime = sdf.format(new Date());
-    
-            String[] array = getActivity().getResources().getStringArray(R.array.bus);
-            String randomStr = array[new Random().nextInt(array.length)];
-            for (int j = 60; j > 1; j = j - 6) {
-        
-                int d = j;
-                if (atotal > 10) {
-                    a = a + 1;
-                    r = true;
-                }
-                if (r) {
-                    a = -2;
-                    atotal = atotal - 4;
-                }
-                int v = d / (a + (d / 16000));
-                if (v > 0) {
-                    t = d / v;
-                    atotal = atotal + a;
-            
-                    Log.d("velocidad", v + " tiempo " + t + " distancia " + d + " atraso total minutos" + atotal);
-                    metroPlus metro = new metroPlus("1",
-                                                           "em-"+String.valueOf(j),
-                                                           d
-                                                           , address,
-                                                           currentDateandTime,
-                                                           r,
-                                                           atotal,
-                                                           t,
-                                                           randomStr);
-                    profesionalListm.add(metro);
-                }
-                pautaAdapterm.notifyDataSetChanged();
-        
-            }
-            
-        }
-    }, 5000);
-    
+
+    String[] array = getActivity().getResources().getStringArray(R.array.bus);
+    String randomStr = array[new Random().nextInt(array.length)];
+
+    metroPlus metro = new metroPlus("1",
+            "em-"+String.valueOf(1),
+            1
+            , "No has exagerado mucho con  la motocicleta",
+            "Tienes derecho a 500 gramos",
+            false,
+            1,
+            2,
+            "Agradecemos que contribuyas con un mejor uso del transporte Público");
+    profesionalListm.add(metro);
+    metro = new metroPlus("1",
+            "em-"+String.valueOf(1),
+            1
+            , "Has hecho uso del transporte Público",
+            "Tienes derecho a 500 gramos",
+            false,
+            1,
+            2,
+            "Agradecemos que contribuyas con un mejor uso del transporte Público");
+    profesionalListm.add(metro);
+    metro = new metroPlus("1",
+            "em-"+String.valueOf(1),
+            1
+            , "Has hecho uso de la bicicleta",
+            "Tienes derecho a 500 gramos",
+            false,
+            1,
+            2,
+            randomStr);
+    profesionalListm.add(metro);
+    metro = new metroPlus("1",
+            "em-"+String.valueOf(1),
+            1
+            , "Has dejado el carro en casa",
+            "Tienes derecho a 1000 gramos",
+            false,
+            1,
+            2,
+            "Agradecemos que contribuyas con un mejor uso del transporte");
+    profesionalListm.add(metro);
+
+
+
+        pautaAdapterm.notifyDataSetChanged();
+
+
     
 
 }

@@ -24,7 +24,7 @@
                 android:src="@drawable/avatar_example"/>
 
             <TextView
-                android:id="@+id/direccion"
+                android:id="@+id/gramos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
@@ -36,7 +36,7 @@
                 android:id="@+id/fecha"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/direccion"
+                android:layout_below="@+id/gramos"
                 android:layout_toEndOf="@+id/imagen"
                 android:text="Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. " android:textSize="12dp"/>
             <TextView
